@@ -34,15 +34,15 @@ Resize image file.
 > Resizes the image to the closest ratio to the size entered.
 
 ```csharp
-using (var stream = File.Open(filePath, FileMode.Open))
+using (var input = File.Open(filePath, FileMode.Open))
 {
-    using (var outputFileStream = File.OpenWrite(outputFilePath))
+    using (var output = File.OpenWrite(outputFilePath))
     {
-        await service.OptimizeAsync(stream, outputFileStream, contentType, 800, 600);
+        await service.OptimizeAsync(input, output, contentType, 800, 600);
 
-        outputFileStream.Close();
+        output.Close();
     }
 
-    stream.Close();
+    input.Close();
 }
 ```
